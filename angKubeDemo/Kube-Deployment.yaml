@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angkubedemo-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: angkubedemo
+  template:
+    metadata:
+      labels:
+        app : angkubedemo  
+    spec:
+      containers:
+        - name: angkubedemocont
+          image: ravindrakumarch/angkubedemo:v1
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
+     
